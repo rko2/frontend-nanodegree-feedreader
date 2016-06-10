@@ -66,6 +66,15 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          var menuIcon = $('.menu-icon-link');
+
+          it('should change visibility when the menu icon is clicked', function() {
+            menuIcon.click();
+            expect($('.menu-hidden').length).toBe(0);
+            menuIcon.click();
+            expect($('.menu-hidden').length).not.toBe(0);
+          });
+        });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
@@ -82,5 +91,4 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-       })
 }());
