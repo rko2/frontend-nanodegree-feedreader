@@ -98,8 +98,11 @@ $(function() {
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe("New Feed Selection", function() {
+      var feedContent;
+
       beforeEach(function(done) {
-        loadFeed(0, function() {
+        loadFeed(1, function() {
+          feedContent = $('.feed').html();
           done();
         });
       });
@@ -108,5 +111,11 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('should load the chosen feed', function(done) {
+          loadFeed(0, function() {
+            expect(feedContent).not.toEqual($('.feed').html());
+            done();
+          });
+        });
        });
 }());
