@@ -21,6 +21,8 @@ $(function() {
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
+
+        // The feeds that we plan on accessing to make sure that they have been defined.
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
@@ -31,6 +33,8 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+
+        // Every feed we plan on accessing has a valid URL.
         it('should have a URL', function() {
           for (var i = 0; i < allFeeds.length; i++) {
             expect(allFeeds[i].url).toBeDefined();
@@ -42,6 +46,8 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+
+         // Every feed we plan on accessing has a valid name.
          it('should have a name', function() {
            for (var i = 0; i < allFeeds.length; i++) {
              expect(allFeeds[i].name).toBeDefined();
@@ -57,6 +63,8 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+
+         // The body should contain the menu-hidden class from the start.
          it('should be hidden by default', function() {
            expect($('.menu-hidden').length).not.toBe(0);
          });
@@ -68,6 +76,7 @@ $(function() {
           */
           var menuIcon = $('.menu-icon-link');
 
+          // When the menu icon is clicked, the menu-hidden class should disappear and reappear accordingly.
           it('should change visibility when the menu icon is clicked', function() {
             menuIcon.click();
             expect($('.menu-hidden').length).toBe(0);
@@ -90,6 +99,8 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+         // There should be existing entries upon loading the feed.
          it('should exist', function(done) {
            expect($('.entry').length).not.toBe(0);
            done();
@@ -111,6 +122,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+        // The displayed feed entries should change upon loading of a different feed.
         it('should load the chosen feed', function(done) {
           loadFeed(0, function() {
             expect(feedContent).not.toEqual($('.feed').html());
