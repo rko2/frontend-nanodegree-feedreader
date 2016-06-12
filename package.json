@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rko2/frontend-nanodegree-feedreader/issues"
   },
-  "homepage": "https://github.com/rko2/frontend-nanodegree-feedreader#readme"
+  "homepage": "https://github.com/rko2/frontend-nanodegree-feedreader#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
 }
